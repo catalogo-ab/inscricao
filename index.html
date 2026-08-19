@@ -3,6 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SENAI ID - Cadastro</title>
@@ -16,7 +17,9 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     background: #f5f5f5;
+
     font-family: Arial, Helvetica, sans-serif;
 
     display: flex;
@@ -26,9 +29,15 @@ body {
     color: #333;
 }
 
+
+/* =========================
+   CAIXA PRINCIPAL
+========================= */
+
 .container {
 
     width: 450px;
+
     max-width: 92%;
 
     background: white;
@@ -41,19 +50,37 @@ body {
         0 2px 15px rgba(0,0,0,.15);
 }
 
+
+/* =========================
+   LOGO
+========================= */
+
 .logo-area {
+
     text-align: center;
+
     margin-bottom: 30px;
 }
 
+
 .logo-senai {
+
     width: 150px;
+
     max-width: 70%;
+
     height: auto;
-    object-fit: contain;
+
+    display: inline-block;
 }
 
+
+/* =========================
+   TÍTULO
+========================= */
+
 h1 {
+
     text-align: center;
 
     font-size: 25px;
@@ -63,7 +90,9 @@ h1 {
     margin: 0 0 8px;
 }
 
+
 .subtitle {
+
     text-align: center;
 
     color: #666;
@@ -73,11 +102,19 @@ h1 {
     margin-bottom: 30px;
 }
 
+
+/* =========================
+   CAMPOS
+========================= */
+
 .field {
+
     margin-bottom: 18px;
 }
 
+
 label {
+
     display: block;
 
     font-size: 14px;
@@ -87,7 +124,11 @@ label {
     color: #444;
 }
 
-input {
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+
     width: 100%;
 
     height: 50px;
@@ -105,38 +146,65 @@ input {
     transition: .2s;
 }
 
-input:focus {
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+
     border-color: #00843D;
 
     box-shadow:
         0 0 0 2px rgba(0,132,61,.12);
 }
 
+
+/* =========================
+   TERMOS
+========================= */
+
 .terms {
+
     display: flex;
 
     align-items: flex-start;
 
     gap: 8px;
 
-    font-size: 12px;
+    margin: 20px 0;
 
     color: #666;
 
-    margin: 20px 0;
 }
 
-.terms input {
+
+.terms input[type="checkbox"] {
+
     width: 16px;
+
     height: 16px;
-    margin-top: 1px;
+
+    margin: 1px 0 0 0;
+
+    flex-shrink: 0;
 }
+
 
 .terms label {
+
     font-size: 12px;
+
+    line-height: 1.4;
+
+    margin: 0;
 }
 
+
+/* =========================
+   BOTÃO
+========================= */
+
 button {
+
     width: 100%;
 
     height: 50px;
@@ -158,11 +226,25 @@ button {
     transition: .2s;
 }
 
+
 button:hover {
+
     background: #006f34;
 }
 
+
+button:active {
+
+    transform: scale(.99);
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
 .footer {
+
     text-align: center;
 
     color: #888;
@@ -174,10 +256,17 @@ button:hover {
     line-height: 1.5;
 }
 
+
+/* =========================
+   CELULAR
+========================= */
+
 @media (max-width: 500px) {
 
     .container {
+
         padding: 30px 24px;
+
     }
 
 }
@@ -193,6 +282,8 @@ button:hover {
 <div class="container">
 
 
+    <!-- LOGO DO SENAI -->
+
     <div class="logo-area">
 
         <img
@@ -204,20 +295,24 @@ button:hover {
     </div>
 
 
+    <!-- TÍTULO -->
+
     <h1>
         Crie sua conta
     </h1>
 
 
     <div class="subtitle">
-
         Cadastre-se para continuar
-
     </div>
 
 
+    <!-- FORMULÁRIO -->
+
     <form id="cadastro">
 
+
+        <!-- NOME -->
 
         <div class="field">
 
@@ -228,6 +323,7 @@ button:hover {
             <input
                 type="text"
                 id="nome"
+                name="nome"
                 placeholder="Digite seu nome"
                 autocomplete="off"
                 required
@@ -235,6 +331,8 @@ button:hover {
 
         </div>
 
+
+        <!-- E-MAIL -->
 
         <div class="field">
 
@@ -245,6 +343,7 @@ button:hover {
             <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Digite seu e-mail"
                 autocomplete="off"
                 required
@@ -252,6 +351,8 @@ button:hover {
 
         </div>
 
+
+        <!-- SENHA -->
 
         <div class="field">
 
@@ -262,6 +363,7 @@ button:hover {
             <input
                 type="password"
                 id="senha"
+                name="senha"
                 placeholder="Digite uma senha"
                 autocomplete="new-password"
                 required
@@ -269,6 +371,8 @@ button:hover {
 
         </div>
 
+
+        <!-- CONFIRMAR SENHA -->
 
         <div class="field">
 
@@ -279,6 +383,7 @@ button:hover {
             <input
                 type="password"
                 id="confirmar"
+                name="confirmar"
                 placeholder="Digite a senha novamente"
                 autocomplete="new-password"
                 required
@@ -286,6 +391,8 @@ button:hover {
 
         </div>
 
+
+        <!-- TERMOS -->
 
         <div class="terms">
 
@@ -305,19 +412,22 @@ button:hover {
         </div>
 
 
+        <!-- BOTÃO -->
+
         <button type="submit">
-
             Criar conta
-
         </button>
 
 
     </form>
 
 
+    <!-- RODAPÉ -->
+
     <div class="footer">
 
         SENAI ID<br>
+
         Ambiente de acesso seguro
 
     </div>
@@ -325,3 +435,37 @@ button:hover {
 
 </div>
 
+
+<script>
+
+/*
+==================================================
+SIMULAÇÃO PEDAGÓGICA
+
+Os dados digitados no formulário NÃO são enviados
+para nenhum servidor e NÃO são armazenados.
+
+Ao clicar em "Criar conta", o navegador apenas
+abre o arquivo simulacao.html.
+==================================================
+*/
+
+
+const formulario =
+    document.getElementById("cadastro");
+
+
+formulario.addEventListener("submit", function(event) {
+
+    /*
+    Impede o formulário de tentar enviar
+    os dados para algum servidor.
+    */
+
+    event.preventDefault();
+
+
+    /*
+    Abre a segunda página.
+
+    O "./

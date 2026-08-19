@@ -5,13 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SYSTEM BREACH</title>
-
 
 <style>
 
@@ -31,9 +27,13 @@ body {
 
     font-family: "Courier New", monospace;
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
+
+/* =========================
+   FUNDO
+========================= */
 
 body::before {
 
@@ -57,6 +57,8 @@ body::before {
         );
 
     background-size: 35px 35px;
+
+    z-index: 0;
 }
 
 
@@ -80,7 +82,15 @@ body::before {
 }
 
 
+/* =========================
+   CONTAINER
+========================= */
+
 .container {
+
+    position: relative;
+
+    z-index: 2;
 
     width: min(950px, 92%);
 
@@ -88,7 +98,7 @@ body::before {
 
     border: 1px solid #00ff9d;
 
-    background: rgba(0,8,12,.95);
+    background: rgba(0,8,12,.96);
 
     padding: 28px;
 
@@ -98,11 +108,19 @@ body::before {
 }
 
 
+/* =========================
+   CABEÇALHO
+========================= */
+
 .header {
 
     display: flex;
 
     justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
 
     border-bottom: 1px solid #075;
 
@@ -143,6 +161,10 @@ body::before {
 }
 
 
+/* =========================
+   ALERTA
+========================= */
+
 .alert {
 
     text-align: center;
@@ -161,6 +183,10 @@ body::before {
 }
 
 
+/* =========================
+   TERMINAL
+========================= */
+
 .terminal {
 
     background: #000;
@@ -177,11 +203,16 @@ body::before {
     line-height: 1.7;
 
     font-size: 15px;
+
+    overflow: hidden;
 }
 
 
 .line {
+
     margin: 3px 0;
+
+    word-break: break-word;
 }
 
 
@@ -202,6 +233,10 @@ body::before {
         0 0 8px #ffe600;
 }
 
+
+/* =========================
+   BARRA DE PROGRESSO
+========================= */
 
 .progress-box {
 
@@ -238,7 +273,9 @@ body::before {
 }
 
 
-/* REVELAÇÃO */
+/* =========================
+   REVELAÇÃO
+========================= */
 
 .reveal {
 
@@ -246,7 +283,7 @@ body::before {
 
     text-align: center;
 
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -254,10 +291,13 @@ body::before {
 
     color: #ffe600;
 
-    font-size: clamp(30px, 6vw, 60px);
+    font-size: clamp(40px, 7vw, 70px);
 
     text-shadow:
-        0 0 15px #ffe600;
+        0 0 15px #ffe600,
+        0 0 30px #ffe600;
+
+    margin-bottom: 10px;
 }
 
 
@@ -271,7 +311,9 @@ body::before {
 }
 
 
-/* CONTADOR */
+/* =========================
+   CONTADOR
+========================= */
 
 .counter-box {
 
@@ -286,6 +328,21 @@ body::before {
     box-shadow:
         0 0 20px rgba(255,23,68,.25);
 
+    max-width: 650px;
+}
+
+
+.counter-text {
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    line-height: 1.5;
 }
 
 
@@ -293,7 +350,7 @@ body::before {
 
     font-family: "Courier New", monospace;
 
-    font-size: clamp(45px, 10vw, 90px);
+    font-size: clamp(50px, 10vw, 90px);
 
     font-weight: bold;
 
@@ -307,17 +364,9 @@ body::before {
 }
 
 
-.counter-text {
-
-    color: #fff;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    text-transform: uppercase;
-}
-
+/* =========================
+   EXPLICAÇÃO
+========================= */
 
 .lesson {
 
@@ -330,6 +379,9 @@ body::before {
     text-align: left;
 
     background: rgba(255,230,0,.03);
+
+    color: #ddd;
+
 }
 
 
@@ -339,6 +391,18 @@ body::before {
 }
 
 
+.lesson p {
+
+    font-size: 16px;
+
+    margin: 12px 0;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
 .footer {
 
     margin-top: 20px;
@@ -346,8 +410,44 @@ body::before {
     color: #666;
 
     font-size: 11px;
+
 }
 
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width: 94%;
+
+        padding: 18px;
+
+        margin: 3vh auto;
+    }
+
+
+    .header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .terminal {
+
+        min-height: 400px;
+
+        font-size: 13px;
+
+        padding: 15px;
+    }
+
+}
 
 </style>
 
@@ -363,10 +463,15 @@ body::before {
 <div class="container">
 
 
+<!-- =====================================
+     TELA DE ATAQUE
+===================================== -->
+
 <div id="attack">
 
 
     <div class="header">
+
 
         <div class="logo">
 
@@ -381,6 +486,7 @@ body::before {
 
         </div>
 
+
     </div>
 
 
@@ -393,19 +499,30 @@ body::before {
 
     <div class="terminal">
 
+
         <div>
+
             > Initializing connection...
+
         </div>
 
+
         <div>
+
             > Connection established.
+
         </div>
 
+
         <div>
+
             > Scanning user session...
+
         </div>
+
 
         <div id="messages"></div>
+
 
     </div>
 
@@ -424,12 +541,18 @@ body::before {
         class="percent"
         id="percent"
     >
+
         0%
+
     </div>
 
 
 </div>
 
+
+<!-- =====================================
+     REVELAÇÃO
+===================================== -->
 
 <div
     class="reveal"
@@ -447,12 +570,16 @@ body::before {
     <p>
 
         <strong>
+
             VOCÊ ACABOU DE PARTICIPAR
             DE UMA SIMULAÇÃO.
+
         </strong>
 
     </p>
 
+
+    <!-- CONTADOR -->
 
     <div class="counter-box">
 
@@ -487,24 +614,29 @@ body::before {
 
     <p>
 
-        Nenhum e-mail, senha ou dado
-        do seu computador foi enviado
-        ou armazenado por esta página.
+        Nenhum e-mail, senha ou dado do seu
+        computador foi enviado ou armazenado
+        por esta página.
 
     </p>
 
 
+    <!-- EXPLICAÇÃO -->
+
     <div class="lesson">
 
+
         <strong>
+
             O que aconteceu?
+
         </strong>
 
 
         <p>
 
-            Você encontrou uma página de
-            cadastro e decidiu fornecer
+            Você encontrou uma página de cadastro
+            que parecia legítima e decidiu fornecer
             informações para continuar.
 
         </p>
@@ -513,15 +645,14 @@ body::before {
         <p>
 
             Essa é uma das estratégias utilizadas
-            em ataques de
-            <strong>phishing</strong>.
+            em ataques de <strong>phishing</strong>.
 
         </p>
 
 
         <p>
 
-            Antes de inserir informações,
+            Antes de inserir informações pessoais,
             verifique sempre o endereço do site,
             o domínio e a origem do link.
 
@@ -531,11 +662,14 @@ body::before {
         <p>
 
             <strong>
+
                 A aparência de um site não prova
                 que ele é legítimo.
+
             </strong>
 
         </p>
+
 
     </div>
 
@@ -556,7 +690,9 @@ body::before {
 <script>
 
 
-/* MENSAGENS */
+/* =====================================
+   MENSAGENS DA SIMULAÇÃO
+===================================== */
 
 const messages = [
 
@@ -608,16 +744,24 @@ let i = 0;
 let value = 0;
 
 
-/* MENSAGENS */
+/* =====================================
+   MOSTRAR MENSAGENS
+===================================== */
 
 function showMessage() {
 
+
     if (i >= messages.length) {
 
+
         setTimeout(
+
             showReveal,
+
             1500
+
         );
+
 
         return;
 
@@ -643,19 +787,28 @@ function showMessage() {
 
 
     setTimeout(
+
         showMessage,
+
         600
+
     );
 
 }
 
 
-/* BARRA */
+/* =====================================
+   BARRA DE PROGRESSO
+===================================== */
 
 function loading() {
 
-    if (value >= 100)
+
+    if (value >= 100) {
+
         return;
+
+    }
 
 
     value +=
@@ -664,8 +817,11 @@ function loading() {
         ) + 1;
 
 
-    if (value > 100)
+    if (value > 100) {
+
         value = 100;
+
+    }
 
 
     progress.style.width =
@@ -677,23 +833,35 @@ function loading() {
 
 
     setTimeout(
+
         loading,
+
         140
+
     );
 
 }
 
 
-/* CONTADOR */
+/* =====================================
+   CONTADOR DA TURMA
+===================================== */
 
 async function registrarParticipante() {
+
 
     const contador =
         "turma-senai-2026";
 
+
     const namespace =
         "atividade-cyber-senai";
 
+
+    /*
+       Impede que atualizar a página
+       conte novamente no mesmo navegador.
+    */
 
     const jaRegistrado =
         localStorage.getItem(
@@ -703,11 +871,15 @@ async function registrarParticipante() {
 
     if (jaRegistrado) {
 
+
         try {
+
 
             const resposta =
                 await fetch(
+
                     `https://api.counterapi.dev/v1/${namespace}/${contador}`
+
                 );
 
 
@@ -715,15 +887,22 @@ async function registrarParticipante() {
                 await resposta.json();
 
 
-            document.getElementById(
-                "counterNumber"
-            ).textContent =
+            const numero =
                 dados.count ??
                 dados.value ??
                 "?";
 
 
-        } catch (erro) {
+            document.getElementById(
+                "counterNumber"
+            ).textContent =
+                numero;
+
+
+        }
+
+        catch (erro) {
+
 
             document.getElementById(
                 "counterNumber"
@@ -732,6 +911,7 @@ async function registrarParticipante() {
 
         }
 
+
         return;
 
     }
@@ -739,9 +919,12 @@ async function registrarParticipante() {
 
     try {
 
+
         const resposta =
             await fetch(
+
                 `https://api.counterapi.dev/v1/${namespace}/${contador}/up`
+
             );
 
 
@@ -761,16 +944,25 @@ async function registrarParticipante() {
 
 
         localStorage.setItem(
+
             "simulacao_senai_registrada",
+
             "true"
+
         );
 
 
-    } catch (erro) {
+    }
+
+    catch (erro) {
+
 
         console.error(
+
             "Erro no contador:",
+
             erro
+
         );
 
 
@@ -784,9 +976,12 @@ async function registrarParticipante() {
 }
 
 
-/* REVELAÇÃO */
+/* =====================================
+   MOSTRAR REVELAÇÃO
+===================================== */
 
 function showReveal() {
+
 
     document.getElementById(
         "attack"
@@ -805,18 +1000,27 @@ function showReveal() {
 }
 
 
-/* INÍCIO */
+/* =====================================
+   INICIAR SIMULAÇÃO
+===================================== */
 
 setTimeout(
+
     showMessage,
+
     900
+
 );
 
 
 setTimeout(
+
     loading,
+
     900
+
 );
+
 
 </script>
 

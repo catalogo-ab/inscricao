@@ -2,470 +2,84 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SENAI ID - Cadastro</title>
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-
-    background: #f5f5f5;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #333;
-}
-
-
-/* =========================
-   CAIXA PRINCIPAL
-========================= */
-
-.container {
-
-    width: 450px;
-
-    max-width: 92%;
-
-    background: white;
-
-    border-radius: 8px;
-
-    padding: 40px 42px;
-
-    box-shadow:
-        0 2px 15px rgba(0,0,0,.15);
-}
-
-
-/* =========================
-   LOGO
-========================= */
-
-.logo-area {
-
-    text-align: center;
-
-    margin-bottom: 30px;
-}
-
-
-.logo-senai {
-
-    width: 150px;
-
-    max-width: 70%;
-
-    height: auto;
-
-    display: inline-block;
-}
-
-
-/* =========================
-   TÍTULO
-========================= */
-
-h1 {
-
-    text-align: center;
-
-    font-size: 25px;
-
-    font-weight: 400;
-
-    margin: 0 0 8px;
-}
-
-
-.subtitle {
-
-    text-align: center;
-
-    color: #666;
-
-    font-size: 15px;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   CAMPOS
-========================= */
-
-.field {
-
-    margin-bottom: 18px;
-}
-
-
-label {
-
-    display: block;
-
-    font-size: 14px;
-
-    margin-bottom: 7px;
-
-    color: #444;
-}
-
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-
-    width: 100%;
-
-    height: 50px;
-
-    border: 1px solid #aaa;
-
-    border-radius: 4px;
-
-    padding: 0 14px;
-
-    font-size: 16px;
-
-    outline: none;
-
-    transition: .2s;
-}
-
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-
-    border-color: #00843D;
-
-    box-shadow:
-        0 0 0 2px rgba(0,132,61,.12);
-}
-
-
-/* =========================
-   TERMOS
-========================= */
-
-.terms {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 8px;
-
-    margin: 20px 0;
-
-    color: #666;
-
-}
-
-
-.terms input[type="checkbox"] {
-
-    width: 16px;
-
-    height: 16px;
-
-    margin: 1px 0 0 0;
-
-    flex-shrink: 0;
-}
-
-
-.terms label {
-
-    font-size: 12px;
-
-    line-height: 1.4;
-
-    margin: 0;
-}
-
-
-/* =========================
-   BOTÃO
-========================= */
-
-button {
-
-    width: 100%;
-
-    height: 50px;
-
-    border: none;
-
-    border-radius: 4px;
-
-    background: #00843D;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-
-button:hover {
-
-    background: #006f34;
-}
-
-
-button:active {
-
-    transform: scale(.99);
-}
-
-
-/* =========================
-   RODAPÉ
-========================= */
-
-.footer {
-
-    text-align: center;
-
-    color: #888;
-
-    font-size: 11px;
-
-    margin-top: 25px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 500px) {
-
-    .container {
-
-        padding: 30px 24px;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<div class="container">
-
-
-    <!-- LOGO DO SENAI -->
-
-    <div class="logo-area">
-
-        <img
-            src="logo-senai.png"
-            alt="SENAI"
-            class="logo-senai"
-        >
-
-    </div>
-
-
-    <!-- TÍTULO -->
-
-    <h1>
-        Crie sua conta
-    </h1>
-
-
-    <div class="subtitle">
-        Cadastre-se para continuar
-    </div>
-
-
-    <!-- FORMULÁRIO -->
-
-    <form id="cadastro">
-
-
-        <!-- NOME -->
-
-        <div class="field">
-
-            <label for="nome">
-                Nome completo
-            </label>
-
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Digite seu nome"
-                autocomplete="off"
-                required
-            >
-
-        </div>
-
-
-        <!-- E-MAIL -->
-
-        <div class="field">
-
-            <label for="email">
-                E-mail
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Digite seu e-mail"
-                autocomplete="off"
-                required
-            >
-
-        </div>
-
-
-        <!-- SENHA -->
-
-        <div class="field">
-
-            <label for="senha">
-                Crie uma senha
-            </label>
-
-            <input
-                type="password"
-                id="senha"
-                name="senha"
-                placeholder="Digite uma senha"
-                autocomplete="new-password"
-                required
-            >
-
-        </div>
-
-
-        <!-- CONFIRMAR SENHA -->
-
-        <div class="field">
-
-            <label for="confirmar">
-                Confirme sua senha
-            </label>
-
-            <input
-                type="password"
-                id="confirmar"
-                name="confirmar"
-                placeholder="Digite a senha novamente"
-                autocomplete="new-password"
-                required
-            >
-
-        </div>
-
-
-        <!-- TERMOS -->
-
-        <div class="terms">
-
-            <input
-                type="checkbox"
-                id="termos"
-                required
-            >
-
-            <label for="termos">
-
-                Concordo com os termos de uso e
-                desejo criar minha conta.
-
-            </label>
-
-        </div>
-
-
-        <!-- BOTÃO -->
-
-        <button type="submit">
-            Criar conta
-        </button>
-
-
-    </form>
-
-
-    <!-- RODAPÉ -->
-
-    <div class="footer">
-
-        SENAI ID<br>
-
-        Ambiente de acesso seguro
-
-    </div>
-
-
-</div>
-
-
-<script>
-
-/*
-==================================================
-SIMULAÇÃO PEDAGÓGICA
-
-Os dados digitados no formulário NÃO são enviados
-para nenhum servidor e NÃO são armazenados.
-
-Ao clicar em "Criar conta", o navegador apenas
-abre o arquivo simulacao.html.
-==================================================
-*/
-
-
-const formulario =
-    document.getElementById("cadastro");
-
-
-formulario.addEventListener("submit", function(event) {
-
-    /*
-    Impede o formulário de tentar enviar
-    os dados para algum servidor.
-    */
-
-    event.preventDefault();
-
-
-    /*
-    Abre a segunda página.
-
-    O "./
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SENAI ID - Cadastro</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            width: 450px;
+            max-width: 92%;
+            background: white;
+            border-radius: 8px;
+            padding: 40px 42px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-senai {
+            width: 190px;
+            max-width: 70%;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 25px;
+            font-weight: 400;
+            margin: 0 0 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 7px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 0 14px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:

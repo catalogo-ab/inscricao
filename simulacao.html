@@ -51,7 +51,6 @@ body::before {
 }
 
 .container {
-
     width: min(950px, 92%);
     margin: 6vh auto;
 
@@ -67,19 +66,16 @@ body::before {
 }
 
 .header {
-
     display: flex;
     justify-content: space-between;
 
     border-bottom: 1px solid #075;
 
     padding-bottom: 15px;
-
     margin-bottom: 25px;
 }
 
 .logo {
-
     font-size: 20px;
     font-weight: bold;
 
@@ -87,7 +83,6 @@ body::before {
 }
 
 .status {
-
     color: #ff1744;
 
     text-shadow: 0 0 10px #ff1744;
@@ -96,15 +91,12 @@ body::before {
 }
 
 @keyframes blink {
-
     50% {
         opacity: .3;
     }
-
 }
 
 .alert {
-
     text-align: center;
 
     color: #ff1744;
@@ -121,7 +113,6 @@ body::before {
 }
 
 .terminal {
-
     background: #000;
 
     border: 1px solid #064;
@@ -157,7 +148,6 @@ body::before {
 }
 
 .progress-box {
-
     margin-top: 25px;
 
     height: 25px;
@@ -168,7 +158,6 @@ body::before {
 }
 
 .progress {
-
     width: 0%;
 
     height: 100%;
@@ -181,15 +170,16 @@ body::before {
 }
 
 .percent {
-
     text-align: right;
-
     margin-top: 5px;
-
 }
 
-.reveal {
 
+/* ========================= */
+/* REVELAÇÃO FINAL */
+/* ========================= */
+
+.reveal {
     display: none;
 
     text-align: center;
@@ -198,7 +188,6 @@ body::before {
 }
 
 .reveal h1 {
-
     color: #ffe600;
 
     font-size: clamp(30px, 6vw, 60px);
@@ -206,16 +195,69 @@ body::before {
     text-shadow:
         0 0 15px #ffe600;
 
+    margin-bottom: 10px;
 }
 
 .reveal p {
-
     color: #ddd;
 
     font-size: 18px;
 
     line-height: 1.6;
 }
+
+
+/* ========================= */
+/* CONTADOR */
+/* ========================= */
+
+.counter-box {
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    border: 2px solid #ff1744;
+
+    background: rgba(255,23,68,.05);
+
+    box-shadow:
+        0 0 20px rgba(255,23,68,.25);
+
+}
+
+.counter-number {
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(45px, 10vw, 90px);
+
+    font-weight: bold;
+
+    color: #ff1744;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744;
+
+    margin: 10px 0;
+}
+
+.counter-text {
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================= */
+/* EXPLICAÇÃO */
+/* ========================= */
 
 .lesson {
 
@@ -232,33 +274,49 @@ body::before {
 }
 
 .lesson strong {
-
     color: #ffe600;
+}
+
+.footer {
+
+    margin-top: 20px;
+
+    color: #666;
+
+    font-size: 11px;
+
 }
 
 </style>
 </head>
 
+
 <body>
 
 <div class="scanlines"></div>
 
+
 <div class="container">
 
-    <div class="header">
 
-        <div class="logo">
-            [ SENAI // SECURITY ]
-        </div>
-
-        <div class="status">
-            ● BREACH DETECTED
-        </div>
-
-    </div>
-
+    <!-- ========================= -->
+    <!-- SIMULAÇÃO -->
+    <!-- ========================= -->
 
     <div id="attack">
+
+        <div class="header">
+
+            <div class="logo">
+                [ SENAI // SECURITY ]
+            </div>
+
+            <div class="status">
+                ● BREACH DETECTED
+            </div>
+
+        </div>
+
 
         <div class="alert">
             ⚠ SYSTEM COMPROMISED ⚠
@@ -284,6 +342,7 @@ body::before {
 
         </div>
 
+
         <div class="percent" id="percent">
             0%
         </div>
@@ -291,20 +350,61 @@ body::before {
     </div>
 
 
+
+    <!-- ========================= -->
+    <!-- REVELAÇÃO -->
+    <!-- ========================= -->
+
     <div class="reveal" id="reveal">
+
 
         <h1>
             CALMA!
         </h1>
 
-        <p>
-            <strong>VOCÊ ACABOU DE PARTICIPAR DE UMA SIMULAÇÃO.</strong>
-        </p>
 
         <p>
-            Nenhum e-mail, senha ou dado do seu computador
-            foi enviado ou armazenado.
+            <strong>
+                VOCÊ ACABOU DE PARTICIPAR DE UMA SIMULAÇÃO.
+            </strong>
         </p>
+
+
+        <!-- CONTADOR -->
+
+        <div class="counter-box">
+
+            <div class="counter-text">
+
+                VOCÊ FOI A
+
+            </div>
+
+
+            <div
+                class="counter-number"
+                id="counterNumber"
+            >
+                ...
+            </div>
+
+
+            <div class="counter-text">
+
+                ª PESSOA A CAIR NESTA SIMULAÇÃO
+
+            </div>
+
+        </div>
+
+
+        <p>
+
+            Nenhum e-mail, senha ou dado do seu computador
+            foi enviado ou armazenado por esta página.
+
+        </p>
+
 
         <div class="lesson">
 
@@ -312,20 +412,47 @@ body::before {
                 O que aconteceu?
             </strong>
 
+
             <p>
+
                 Você encontrou uma página de login,
                 confiou nela e tentou prosseguir.
+
             </p>
 
+
             <p>
+
                 Esse é justamente o princípio utilizado
-                em muitos ataques de <strong>phishing</strong>.
+                em muitos ataques de
+                <strong>phishing</strong>.
+
             </p>
 
+
             <p>
+
                 Antes de inserir uma senha, sempre verifique
                 o endereço do site, o domínio e a origem do link.
+
             </p>
+
+
+            <p>
+
+                <strong>
+                    A aparência de um site não é prova de que
+                    ele é legítimo.
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <div class="footer">
+
+            Simulação pedagógica de segurança digital.
 
         </div>
 
@@ -334,7 +461,13 @@ body::before {
 </div>
 
 
+
 <script>
+
+
+/* ========================================= */
+/* MENSAGENS DA SIMULAÇÃO */
+/* ========================================= */
 
 const messages = [
 
@@ -368,18 +501,27 @@ const messages = [
 
 ];
 
+
 const messagesBox =
     document.getElementById("messages");
+
 
 const progress =
     document.getElementById("progress");
 
+
 const percent =
     document.getElementById("percent");
 
+
 let i = 0;
+
 let value = 0;
 
+
+/* ========================================= */
+/* MOSTRAR MENSAGENS */
+/* ========================================= */
 
 function showMessage() {
 
@@ -388,57 +530,188 @@ function showMessage() {
         setTimeout(showReveal, 1500);
 
         return;
+
     }
+
 
     const line =
         document.createElement("div");
 
+
     line.className =
         "line " + messages[i][1];
+
 
     line.textContent =
         messages[i][0];
 
+
     messagesBox.appendChild(line);
 
+
     i++;
+
 
     setTimeout(showMessage, 600);
 
 }
 
 
+
+/* ========================================= */
+/* BARRA DE PROGRESSO */
+/* ========================================= */
+
 function loading() {
 
     if (value >= 100)
         return;
 
-    value += Math.floor(Math.random() * 4) + 1;
+
+    value +=
+        Math.floor(Math.random() * 4) + 1;
+
 
     if (value > 100)
         value = 100;
 
+
     progress.style.width =
         value + "%";
 
+
     percent.textContent =
         value + "%";
+
 
     setTimeout(loading, 140);
 
 }
 
 
+
+/* ========================================= */
+/* CONTADOR */
+/* ========================================= */
+
+async function registrarParticipante() {
+
+    const contador = "turma-senai-2026";
+
+    const namespace = "atividade-cyber-senai";
+
+    const jaRegistrado =
+        localStorage.getItem("simulacao_senai_registrada");
+
+
+    /*
+       Evita que a mesma pessoa conte novamente
+       ao atualizar a página no mesmo navegador.
+    */
+
+    if (jaRegistrado) {
+
+        try {
+
+            const resposta =
+                await fetch(
+                    `https://api.counterapi.dev/v1/${namespace}/${contador}`
+                );
+
+
+            const dados =
+                await resposta.json();
+
+
+            document.getElementById(
+                "counterNumber"
+            ).textContent =
+                dados.count ?? dados.value ?? "?";
+
+
+        } catch (erro) {
+
+            document.getElementById(
+                "counterNumber"
+            ).textContent = "?";
+
+        }
+
+        return;
+
+    }
+
+
+    try {
+
+        const resposta =
+            await fetch(
+                `https://api.counterapi.dev/v1/${namespace}/${contador}/up`
+            );
+
+
+        const dados =
+            await resposta.json();
+
+
+        const numero =
+            dados.count ?? dados.value;
+
+
+        document.getElementById(
+            "counterNumber"
+        ).textContent =
+            numero;
+
+
+        localStorage.setItem(
+            "simulacao_senai_registrada",
+            "true"
+        );
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro no contador:",
+            erro
+        );
+
+
+        document.getElementById(
+            "counterNumber"
+        ).textContent =
+            "?";
+
+    }
+
+}
+
+
+
+/* ========================================= */
+/* REVELAÇÃO */
+/* ========================================= */
+
 function showReveal() {
 
     document.getElementById("attack")
         .style.display = "none";
 
+
     document.getElementById("reveal")
         .style.display = "block";
 
+
+    registrarParticipante();
+
 }
 
+
+
+/* ========================================= */
+/* INICIAR */
+/* ========================================= */
 
 setTimeout(showMessage, 900);
 

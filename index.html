@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SENAI ID</title>
+
+<title>SENAI ID - Cadastro</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -13,162 +16,312 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: #f5f7fa;
+    background: #f5f5f5;
     font-family: Arial, Helvetica, sans-serif;
+
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #202124;
+    align-items: center;
+
+    color: #333;
 }
 
-.login-box {
+.container {
+
     width: 450px;
     max-width: 92%;
-    background: #fff;
-    border: 1px solid #dadce0;
-    border-radius: 12px;
-    padding: 42px;
-    box-shadow: 0 2px 14px rgba(0,0,0,.15);
+
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 40px 42px;
+
+    box-shadow:
+        0 2px 15px rgba(0,0,0,.15);
 }
 
-.logo {
+.logo-area {
     text-align: center;
-    font-size: 27px;
-    font-weight: bold;
     margin-bottom: 30px;
 }
 
-.logo span {
-    color: #007f5f;
+.logo-senai {
+    width: 150px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
 }
 
 h1 {
     text-align: center;
+
     font-size: 25px;
+
     font-weight: 400;
-    margin-bottom: 10px;
+
+    margin: 0 0 8px;
 }
 
 .subtitle {
     text-align: center;
-    color: #5f6368;
+
+    color: #666;
+
     font-size: 15px;
+
     margin-bottom: 30px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+
+    color: #444;
 }
 
 input {
     width: 100%;
-    height: 55px;
-    border: 1px solid #9aa0a6;
-    border-radius: 5px;
-    padding: 0 15px;
+
+    height: 50px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 4px;
+
+    padding: 0 14px;
+
     font-size: 16px;
+
     outline: none;
-    margin-bottom: 18px;
+
+    transition: .2s;
 }
 
 input:focus {
-    border: 2px solid #007f5f;
+    border-color: #00843D;
+
+    box-shadow:
+        0 0 0 2px rgba(0,132,61,.12);
 }
 
-.help {
-    color: #007f5f;
-    font-size: 14px;
-}
-
-.actions {
+.terms {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    color: #666;
+
+    margin: 20px 0;
+}
+
+.terms input {
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+}
+
+.terms label {
+    font-size: 12px;
 }
 
 button {
-    background: #007f5f;
-    color: white;
+    width: 100%;
+
+    height: 50px;
+
     border: none;
-    border-radius: 5px;
-    padding: 12px 25px;
-    font-size: 15px;
+
+    border-radius: 4px;
+
+    background: #00843D;
+
+    color: white;
+
+    font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+
+    transition: .2s;
 }
 
 button:hover {
-    background: #00694e;
+    background: #006f34;
 }
 
-.notice {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid #eee;
-    color: #777;
+.footer {
     text-align: center;
+
+    color: #888;
+
     font-size: 11px;
+
+    margin-top: 25px;
+
+    line-height: 1.5;
 }
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 30px 24px;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="login-box">
 
-    <div class="logo">
-        <span>◆</span> SENAI ID
+<div class="container">
+
+
+    <div class="logo-area">
+
+        <img
+            src="logo-senai.png"
+            alt="SENAI"
+            class="logo-senai"
+        >
+
     </div>
 
-    <h1>Entrar</h1>
+
+    <h1>
+        Crie sua conta
+    </h1>
+
 
     <div class="subtitle">
-        Acesse sua conta para continuar
+
+        Cadastre-se para continuar
+
     </div>
 
-    <form id="loginForm">
 
-        <input
-            type="text"
-            placeholder="E-mail ou usuário"
-            autocomplete="off"
-        >
+    <form id="cadastro">
 
-        <input
-            type="password"
-            placeholder="Senha"
-            autocomplete="off"
-        >
 
-        <div class="help">
-            Esqueceu sua senha?
+        <div class="field">
+
+            <label for="nome">
+                Nome completo
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                autocomplete="off"
+                required
+            >
+
         </div>
 
-        <div class="actions">
-            <button type="submit">
-                Entrar
-            </button>
+
+        <div class="field">
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                autocomplete="off"
+                required
+            >
+
         </div>
+
+
+        <div class="field">
+
+            <label for="senha">
+                Crie uma senha
+            </label>
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite uma senha"
+                autocomplete="new-password"
+                required
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label for="confirmar">
+                Confirme sua senha
+            </label>
+
+            <input
+                type="password"
+                id="confirmar"
+                placeholder="Digite a senha novamente"
+                autocomplete="new-password"
+                required
+            >
+
+        </div>
+
+
+        <div class="terms">
+
+            <input
+                type="checkbox"
+                id="termos"
+                required
+            >
+
+            <label for="termos">
+
+                Concordo com os termos de uso e
+                desejo criar minha conta.
+
+            </label>
+
+        </div>
+
+
+        <button type="submit">
+
+            Criar conta
+
+        </button>
+
 
     </form>
 
-    <div class="notice">
-        Ambiente protegido • SENAI ID
+
+    <div class="footer">
+
+        SENAI ID<br>
+        Ambiente de acesso seguro
+
     </div>
+
 
 </div>
 
-<script>
-
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-
-    e.preventDefault();
-
-    /*
-       Nenhum dado digitado é enviado ou armazenado.
-    */
-
-    window.location.href = "simulacao.html";
-
-});
-
-</script>
-
-</body>
-</html>

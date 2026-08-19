@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SYSTEM BREACH</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #020507;
+    color: #00ff9d;
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(rgba(0,255,157,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,157,.035) 1px, transparent 1px);
+
+    background-size: 35px 35px;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,.018),
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+
+    z-index: 10;
+}
+
+.container {
+
+    width: min(950px, 92%);
+    margin: 6vh auto;
+
+    border: 1px solid #00ff9d;
+
+    background: rgba(0,8,12,.95);
+
+    padding: 28px;
+
+    box-shadow:
+        0 0 20px rgba(0,255,157,.5),
+        inset 0 0 30px rgba(0,255,157,.08);
+}
+
+.header {
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #075;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 25px;
+}
+
+.logo {
+
+    font-size: 20px;
+    font-weight: bold;
+
+    text-shadow: 0 0 10px #00ff9d;
+}
+
+.status {
+
+    color: #ff1744;
+
+    text-shadow: 0 0 10px #ff1744;
+
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: .3;
+    }
+
+}
+
+.alert {
+
+    text-align: center;
+
+    color: #ff1744;
+
+    font-size: clamp(28px, 5vw, 50px);
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744;
+
+    margin: 20px 0 30px;
+}
+
+.terminal {
+
+    background: #000;
+
+    border: 1px solid #064;
+
+    padding: 22px;
+
+    min-height: 360px;
+
+    box-shadow:
+        inset 0 0 30px rgba(0,255,157,.08);
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+.line {
+    margin: 3px 0;
+}
+
+.red {
+    color: #ff1744;
+
+    text-shadow:
+        0 0 8px #ff1744;
+}
+
+.yellow {
+    color: #ffe600;
+
+    text-shadow:
+        0 0 8px #ffe600;
+}
+
+.progress-box {
+
+    margin-top: 25px;
+
+    height: 25px;
+
+    border: 1px solid #00ff9d;
+
+    padding: 3px;
+}
+
+.progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #00ff9d;
+
+    box-shadow: 0 0 15px #00ff9d;
+
+    transition: width .15s;
+}
+
+.percent {
+
+    text-align: right;
+
+    margin-top: 5px;
+
+}
+
+.reveal {
+
+    display: none;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+}
+
+.reveal h1 {
+
+    color: #ffe600;
+
+    font-size: clamp(30px, 6vw, 60px);
+
+    text-shadow:
+        0 0 15px #ffe600;
+
+}
+
+.reveal p {
+
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+.lesson {
+
+    margin-top: 25px;
+
+    border: 1px solid #ffe600;
+
+    padding: 20px;
+
+    text-align: left;
+
+    background: rgba(255,230,0,.03);
+
+}
+
+.lesson strong {
+
+    color: #ffe600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="logo">
+            [ SENAI // SECURITY ]
+        </div>
+
+        <div class="status">
+            ● BREACH DETECTED
+        </div>
+
+    </div>
+
+
+    <div id="attack">
+
+        <div class="alert">
+            ⚠ SYSTEM COMPROMISED ⚠
+        </div>
+
+
+        <div class="terminal">
+
+            <div>> Initializing connection...</div>
+
+            <div>> Connection established.</div>
+
+            <div>> Scanning user session...</div>
+
+            <div id="messages"></div>
+
+        </div>
+
+
+        <div class="progress-box">
+
+            <div class="progress" id="progress"></div>
+
+        </div>
+
+        <div class="percent" id="percent">
+            0%
+        </div>
+
+    </div>
+
+
+    <div class="reveal" id="reveal">
+
+        <h1>
+            CALMA!
+        </h1>
+
+        <p>
+            <strong>VOCÊ ACABOU DE PARTICIPAR DE UMA SIMULAÇÃO.</strong>
+        </p>
+
+        <p>
+            Nenhum e-mail, senha ou dado do seu computador
+            foi enviado ou armazenado.
+        </p>
+
+        <div class="lesson">
+
+            <strong>
+                O que aconteceu?
+            </strong>
+
+            <p>
+                Você encontrou uma página de login,
+                confiou nela e tentou prosseguir.
+            </p>
+
+            <p>
+                Esse é justamente o princípio utilizado
+                em muitos ataques de <strong>phishing</strong>.
+            </p>
+
+            <p>
+                Antes de inserir uma senha, sempre verifique
+                o endereço do site, o domínio e a origem do link.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const messages = [
+
+    ["> Scanning user session...", ""],
+
+    ["> User session identified.", ""],
+
+    ["> Searching authentication data...", "yellow"],
+
+    ["> Authentication token detected.", "red"],
+
+    ["> Accessing credential storage...", "red"],
+
+    ["> LOGIN DATA FOUND", "red"],
+
+    ["> PASSWORD DATA FOUND", "red"],
+
+    ["> Downloading credentials...", "red"],
+
+    ["> ████████████████████████████", "red"],
+
+    ["> Copying user information...", "yellow"],
+
+    ["> Encrypting data...", "yellow"],
+
+    ["> Uploading information...", "red"],
+
+    ["> TRANSFER COMPLETE", "red"],
+
+    ["> ACCESS GRANTED", "red"]
+
+];
+
+const messagesBox =
+    document.getElementById("messages");
+
+const progress =
+    document.getElementById("progress");
+
+const percent =
+    document.getElementById("percent");
+
+let i = 0;
+let value = 0;
+
+
+function showMessage() {
+
+    if (i >= messages.length) {
+
+        setTimeout(showReveal, 1500);
+
+        return;
+    }
+
+    const line =
+        document.createElement("div");
+
+    line.className =
+        "line " + messages[i][1];
+
+    line.textContent =
+        messages[i][0];
+
+    messagesBox.appendChild(line);
+
+    i++;
+
+    setTimeout(showMessage, 600);
+
+}
+
+
+function loading() {
+
+    if (value >= 100)
+        return;
+
+    value += Math.floor(Math.random() * 4) + 1;
+
+    if (value > 100)
+        value = 100;
+
+    progress.style.width =
+        value + "%";
+
+    percent.textContent =
+        value + "%";
+
+    setTimeout(loading, 140);
+
+}
+
+
+function showReveal() {
+
+    document.getElementById("attack")
+        .style.display = "none";
+
+    document.getElementById("reveal")
+        .style.display = "block";
+
+}
+
+
+setTimeout(showMessage, 900);
+
+setTimeout(loading, 900);
+
+</script>
+
+</body>
+</html>

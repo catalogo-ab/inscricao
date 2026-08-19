@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENAI ID</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f7fa;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #202124;
+}
+
+.login-box {
+    width: 450px;
+    max-width: 92%;
+    background: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 42px;
+    box-shadow: 0 2px 14px rgba(0,0,0,.15);
+}
+
+.logo {
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.logo span {
+    color: #007f5f;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #5f6368;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    height: 55px;
+    border: 1px solid #9aa0a6;
+    border-radius: 5px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 18px;
+}
+
+input:focus {
+    border: 2px solid #007f5f;
+}
+
+.help {
+    color: #007f5f;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+button {
+    background: #007f5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00694e;
+}
+
+.notice {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+    color: #777;
+    text-align: center;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        <span>◆</span> SENAI ID
+    </div>
+
+    <h1>Entrar</h1>
+
+    <div class="subtitle">
+        Acesse sua conta para continuar
+    </div>
+
+    <form id="loginForm">
+
+        <input
+            type="text"
+            placeholder="E-mail ou usuário"
+            autocomplete="off"
+        >
+
+        <input
+            type="password"
+            placeholder="Senha"
+            autocomplete="off"
+        >
+
+        <div class="help">
+            Esqueceu sua senha?
+        </div>
+
+        <div class="actions">
+            <button type="submit">
+                Entrar
+            </button>
+        </div>
+
+    </form>
+
+    <div class="notice">
+        Ambiente protegido • SENAI ID
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    /*
+       Nenhum dado digitado é enviado ou armazenado.
+    */
+
+    window.location.href = "simulacao.html";
+
+});
+
+</script>
+
+</body>
+</html>
